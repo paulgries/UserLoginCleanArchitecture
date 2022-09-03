@@ -1,3 +1,5 @@
+Based on (https://www.baeldung.com/spring-boot-clean-architecture)[https://www.baeldung.com/spring-boot-clean-architecture]
+
 # accounts.entities.User management
 
 User can
