@@ -1,4 +1,4 @@
-# Account management
+# accounts.entities.User management
 
 User can
 - create account
@@ -22,14 +22,14 @@ Notes:
 
 # Entities
 
-- Account
+- accounts.entities.User
 - Current account
 - 
 
 ## Use cases
 
-1. CreateAccountInteractor
-   - CreateAccountInteractor(IOutputPort presenter, AccountLookupTable lookupTable)
+1. accounts.usecases.CreateAccountInteractor
+   - accounts.usecases.CreateAccountInteractor(IOutputPort presenter, AccountLookupTable lookupTable)
    - Success:
      - Creates new account (does not yet log in)
    - Failure:

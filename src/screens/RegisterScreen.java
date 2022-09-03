@@ -1,11 +1,18 @@
 package screens;
 
+import users.UserInputBoundary;
+import users.UserRequestModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SignupScreen extends JFrame implements ActionListener {
+import static javax.swing.JOptionPane.showMessageDialog;
+
+// Frameworks/Drivers layer
+
+public class RegisterScreen extends JFrame implements ActionListener {
     /**
      * The username chosen by the user
      */
@@ -19,12 +26,18 @@ public class SignupScreen extends JFrame implements ActionListener {
      */
     JPasswordField repeatPassword = new JPasswordField(15);
 
+    /**
+     * The controller
+     */
+    UserRegisterController userRegisterController;
 
     /**
      * A window with a title and a JButton.
      */
-    public SignupScreen(String t) {
+    public RegisterScreen(String t, UserRegisterController controller) {
         super(t);
+
+        this.userRegisterController = controller;
 
         JLabel title = new JLabel("Signup Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -64,5 +77,17 @@ public class SignupScreen extends JFrame implements ActionListener {
      */
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Click " + evt.getActionCommand());
+
+        // Create the data transfer object (DTO) to send to the controller.
+        UserRequestModel model = new UserRequestModel(
+                username.getText(),
+                String.valueOf(password.getPassword()));
+
+        try {
+            userRegisterController.create(model);
+            JOptionPane.showMessageDialog(this, "%s created.".formatted(username.getText()));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }
 }

@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+// Frameworks/Drivers layer
+
 public class WelcomeScreen extends JFrame implements ActionListener {
 
     /**

@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+// Frameworks/Drivers layer
+
 public class LoginScreen extends JFrame implements ActionListener {
     /**
      * The username chosen by the user

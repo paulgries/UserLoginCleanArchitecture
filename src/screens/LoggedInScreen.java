@@ -5,12 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Frameworks/Drivers layer
+
 public class LoggedInScreen extends JFrame implements ActionListener {
     /**
      * The username chosen by the user
      */
     JTextField username = new JTextField(15);
-
     /**
      * A window with a title and a JButton.
      */
