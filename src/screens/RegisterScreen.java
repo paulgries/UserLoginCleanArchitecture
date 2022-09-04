@@ -81,7 +81,8 @@ public class RegisterScreen extends JFrame implements ActionListener {
         // Create the data transfer object (DTO) to send to the controller.
         UserRequestModel model = new UserRequestModel(
                 username.getText(),
-                String.valueOf(password.getPassword()));
+                String.valueOf(password.getPassword()),
+                String.valueOf(repeatPassword.getPassword()));
 
         try {
             userRegisterController.create(model);

@@ -4,12 +4,14 @@ package users;
 
 public class UserRequestModel {
 
-    String name;
-    String password;
+    private String name;
+    private String password;
+    private String repeatPassword;
 
-    public UserRequestModel(String name, String password) {
+    public UserRequestModel(String name, String password, String repeatPassword) {
         this.name = name;
         this.password = password;
+        this.repeatPassword = repeatPassword;
     }
 
     String getName() {
@@ -26,5 +28,13 @@ public class UserRequestModel {
 
     void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
     }
 }
