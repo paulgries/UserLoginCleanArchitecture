@@ -15,8 +15,7 @@ public class LoggedInScreen extends JFrame implements ActionListener {
     /**
      * A window with a title and a JButton.
      */
-    public LoggedInScreen(String t) {
-        super(t);
+    public LoggedInScreen() {
 
         JLabel title = new JLabel("Logged-in Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);

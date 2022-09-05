@@ -20,8 +20,7 @@ public class LoginScreen extends JFrame implements ActionListener {
     /**
      * A window with a title and a JButton.
      */
-    public LoginScreen(String t) {
-        super(t);
+    public LoginScreen() {
 
         JLabel title = new JLabel("Login Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);

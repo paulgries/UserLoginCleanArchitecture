@@ -1,6 +1,5 @@
 package screens;
 
-import users.UserInputBoundary;
 import users.UserRequestModel;
 
 import javax.swing.*;
@@ -12,7 +11,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 // Frameworks/Drivers layer
 
-public class RegisterScreen extends JFrame implements ActionListener {
+public class RegisterScreen extends JPanel implements ActionListener {
     /**
      * The username chosen by the user
      */
@@ -34,16 +33,15 @@ public class RegisterScreen extends JFrame implements ActionListener {
     /**
      * A window with a title and a JButton.
      */
-    public RegisterScreen(String t, UserRegisterController controller) {
-        super(t);
+    public RegisterScreen(UserRegisterController controller) {
 
         this.userRegisterController = controller;
 
-        JLabel title = new JLabel("Signup Screen");
+        JLabel title = new JLabel("Register Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         LabelTextPanel usernameInfo = new LabelTextPanel(
-                new JLabel("Username"), username);
+                new JLabel("Choose username"), username);
         LabelTextPanel passwordInfo = new LabelTextPanel(
                 new JLabel("Choose password"), password);
         LabelTextPanel repeatPasswordInfo = new LabelTextPanel(
@@ -59,17 +57,14 @@ public class RegisterScreen extends JFrame implements ActionListener {
         signUp.addActionListener(this);
         cancel.addActionListener(this);
 
-        JPanel main = new JPanel();
-        main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        main.add(title);
-        main.add(usernameInfo);
-        main.add(passwordInfo);
-        main.add(repeatPasswordInfo);
-        main.add(buttons);
+        this.add(title);
+        this.add(usernameInfo);
+        this.add(passwordInfo);
+        this.add(repeatPasswordInfo);
+        this.add(buttons);
 
-        this.setContentPane(main);
-        this.pack();
     }
 
     /**

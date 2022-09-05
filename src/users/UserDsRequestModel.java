@@ -6,9 +6,9 @@ import java.time.LocalDateTime;
 
 public class UserDsRequestModel {
 
-    private String name;
+    private final String name;
     private String password;
-    private LocalDateTime creationTime;
+    private final LocalDateTime creationTime;
 
     public UserDsRequestModel(String name, String password, LocalDateTime creationTime) {
         this.name = name;
@@ -18,10 +18,6 @@ public class UserDsRequestModel {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getPassword() {
@@ -36,8 +32,5 @@ public class UserDsRequestModel {
         return creationTime;
     }
 
-    public void setCreationTime(LocalDateTime creationTime) {
-        this.creationTime = creationTime;
-    }
 
 }
