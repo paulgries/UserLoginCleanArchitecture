@@ -1,8 +1,8 @@
 package screens;
 
-import users.UserInputBoundary;
-import users.UserRequestModel;
-import users.UserResponseModel;
+import user_register_use_case.UserInputBoundary;
+import user_register_use_case.UserRequestModel;
+import user_register_use_case.UserResponseModel;
 
 // Interface adapters layer
 

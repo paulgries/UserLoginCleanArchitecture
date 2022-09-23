@@ -1,7 +1,7 @@
 package screens;
 
-import users.UserDsRequestModel;
-import users.UserRegisterDsGateway;
+import user_register_use_case.UserDsRequestModel;
+import user_register_use_case.UserRegisterDsGateway;
 
 import java.io.*;
 import java.time.LocalDateTime;

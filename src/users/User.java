@@ -2,7 +2,7 @@ package users;
 
 // Entity layer
 
-interface User {
+public interface User {
     boolean passwordIsValid();
 
     String getName();

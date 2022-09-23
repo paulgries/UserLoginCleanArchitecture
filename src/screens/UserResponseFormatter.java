@@ -1,12 +1,10 @@
 package screens;
 
-import users.UserPresenter;
-import users.UserResponseModel;
+import user_register_use_case.UserPresenter;
+import user_register_use_case.UserResponseModel;
 
-import javax.swing.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.logging.Logger;
 
 // Interface adapters layer
 

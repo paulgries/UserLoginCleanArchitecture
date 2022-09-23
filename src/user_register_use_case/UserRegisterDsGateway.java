@@ -1,8 +1,6 @@
-package users;
+package user_register_use_case;
 
 // Use case layer
-
-import java.io.IOException;
 
 public interface UserRegisterDsGateway {
     boolean existsByName(String identifier);

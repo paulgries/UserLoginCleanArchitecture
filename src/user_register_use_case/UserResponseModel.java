@@ -1,4 +1,4 @@
-package users;
+package user_register_use_case;
 
 // Use case layer
 
