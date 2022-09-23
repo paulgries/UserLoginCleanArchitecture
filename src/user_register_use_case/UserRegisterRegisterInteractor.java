@@ -1,7 +1,7 @@
 package user_register_use_case;
 
-import users.User;
-import users.UserFactory;
+import entities.User;
+import entities.UserFactory;
 
 import java.time.LocalDateTime;
 

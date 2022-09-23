@@ -1,8 +1,6 @@
-package users;
+package entities;
 
 import org.junit.jupiter.api.Test;
-import users.CommonUser;
-import users.User;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 

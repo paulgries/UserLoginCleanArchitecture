@@ -3,7 +3,7 @@ import user_register_use_case.UserRegisterInputBoundary;
 import user_register_use_case.UserRegisterPresenter;
 import user_register_use_case.UserRegisterDsGateway;
 import user_register_use_case.UserRegisterRegisterInteractor;
-import users.*;
+import entities.*;
 
 import javax.swing.*;
 import java.awt.*;

@@ -73,14 +73,10 @@ public class RegisterScreen extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Click " + evt.getActionCommand());
 
-        // Create the data transfer object (DTO) to send to the controller.
-        UserRegisterRequestModel model = new UserRegisterRequestModel(
-                username.getText(),
-                String.valueOf(password.getPassword()),
-                String.valueOf(repeatPassword.getPassword()));
-
         try {
-            userRegisterController.create(model);
+            userRegisterController.create(username.getText(),
+                    String.valueOf(password.getPassword()),
+                    String.valueOf(repeatPassword.getPassword()));
             JOptionPane.showMessageDialog(this, "%s created.".formatted(username.getText()));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());

@@ -14,7 +14,10 @@ public class UserRegisterController {
         this.userInput = accountGateway;
     }
 
-    UserRegisterResponseModel create(UserRegisterRequestModel requestModel) {
+    UserRegisterResponseModel create(String username, String password1, String password2) {
+        UserRegisterRequestModel requestModel = new UserRegisterRequestModel(
+                username, password1, password2);
+
         return userInput.create(requestModel);
     }
 }
