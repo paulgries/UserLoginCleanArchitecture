@@ -1,6 +1,6 @@
 package screens;
 
-import user_register_use_case.UserRequestModel;
+import user_register_use_case.UserRegisterRequestModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -74,7 +74,7 @@ public class RegisterScreen extends JPanel implements ActionListener {
         System.out.println("Click " + evt.getActionCommand());
 
         // Create the data transfer object (DTO) to send to the controller.
-        UserRequestModel model = new UserRequestModel(
+        UserRegisterRequestModel model = new UserRegisterRequestModel(
                 username.getText(),
                 String.valueOf(password.getPassword()),
                 String.valueOf(repeatPassword.getPassword()));

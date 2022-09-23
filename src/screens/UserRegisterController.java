@@ -1,20 +1,20 @@
 package screens;
 
-import user_register_use_case.UserInputBoundary;
-import user_register_use_case.UserRequestModel;
-import user_register_use_case.UserResponseModel;
+import user_register_use_case.UserRegisterInputBoundary;
+import user_register_use_case.UserRegisterRequestModel;
+import user_register_use_case.UserRegisterResponseModel;
 
 // Interface adapters layer
 
 public class UserRegisterController {
 
-    final UserInputBoundary userInput;
+    final UserRegisterInputBoundary userInput;
 
-    public UserRegisterController(UserInputBoundary accountGateway) {
+    public UserRegisterController(UserRegisterInputBoundary accountGateway) {
         this.userInput = accountGateway;
     }
 
-    UserResponseModel create(UserRequestModel requestModel) {
+    UserRegisterResponseModel create(UserRegisterRequestModel requestModel) {
         return userInput.create(requestModel);
     }
 }

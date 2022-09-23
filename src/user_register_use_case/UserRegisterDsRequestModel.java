@@ -4,13 +4,13 @@ import java.time.LocalDateTime;
 
 // Use case layer
 
-public class UserDsRequestModel {
+public class UserRegisterDsRequestModel {
 
     private final String name;
     private String password;
     private final LocalDateTime creationTime;
 
-    public UserDsRequestModel(String name, String password, LocalDateTime creationTime) {
+    public UserRegisterDsRequestModel(String name, String password, LocalDateTime creationTime) {
         this.name = name;
         this.password = password;
         this.creationTime = creationTime;

@@ -5,5 +5,5 @@ package user_register_use_case;
 public interface UserRegisterDsGateway {
     boolean existsByName(String identifier);
 
-    void save(UserDsRequestModel requestModel);
+    void save(UserRegisterDsRequestModel requestModel);
 }

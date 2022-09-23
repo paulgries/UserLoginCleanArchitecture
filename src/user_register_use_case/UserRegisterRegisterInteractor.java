@@ -7,21 +7,21 @@ import java.time.LocalDateTime;
 
 // Use case layer
 
-public class UserRegisterInteractor implements UserInputBoundary {
+public class UserRegisterRegisterInteractor implements UserRegisterInputBoundary {
 
     final UserRegisterDsGateway userDsGateway;
-    final UserPresenter userPresenter;
+    final UserRegisterPresenter userPresenter;
     final UserFactory userFactory;
 
-    public UserRegisterInteractor(UserRegisterDsGateway userRegisterDfGateway, UserPresenter userPresenter,
-                                  UserFactory userFactory) {
+    public UserRegisterRegisterInteractor(UserRegisterDsGateway userRegisterDfGateway, UserRegisterPresenter userRegisterPresenter,
+                                          UserFactory userFactory) {
         this.userDsGateway = userRegisterDfGateway;
-        this.userPresenter = userPresenter;
+        this.userPresenter = userRegisterPresenter;
         this.userFactory = userFactory;
     }
 
     @Override
-    public UserResponseModel create(UserRequestModel requestModel) {
+    public UserRegisterResponseModel create(UserRegisterRequestModel requestModel) {
         if (userDsGateway.existsByName(requestModel.getName())) {
             return userPresenter.prepareFailView("User already exists.");
         } else if (!requestModel.getPassword().equals(requestModel.getRepeatPassword())) {
@@ -34,10 +34,10 @@ public class UserRegisterInteractor implements UserInputBoundary {
         }
 
         LocalDateTime now = LocalDateTime.now();
-        UserDsRequestModel userDsModel = new UserDsRequestModel(user.getName(), user.getPassword(), now);
+        UserRegisterDsRequestModel userDsModel = new UserRegisterDsRequestModel(user.getName(), user.getPassword(), now);
         userDsGateway.save(userDsModel);
 
-        UserResponseModel accountResponseModel = new UserResponseModel(user.getName(), now.toString());
+        UserRegisterResponseModel accountResponseModel = new UserRegisterResponseModel(user.getName(), now.toString());
         return userPresenter.prepareSuccessView(accountResponseModel);
     }
 }

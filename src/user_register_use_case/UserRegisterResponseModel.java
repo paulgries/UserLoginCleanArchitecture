@@ -2,12 +2,12 @@ package user_register_use_case;
 
 // Use case layer
 
-public class UserResponseModel {
+public class UserRegisterResponseModel {
 
     String login;
     String creationTime;
 
-    public UserResponseModel(String login, String creationTime) {
+    public UserRegisterResponseModel(String login, String creationTime) {
         this.login = login;
         this.creationTime = creationTime;
     }

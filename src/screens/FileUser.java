@@ -1,6 +1,6 @@
 package screens;
 
-import user_register_use_case.UserDsRequestModel;
+import user_register_use_case.UserRegisterDsRequestModel;
 import user_register_use_case.UserRegisterDsGateway;
 
 import java.io.*;
@@ -15,7 +15,7 @@ public class FileUser implements UserRegisterDsGateway {
 
     private final Map<String, Integer> headers = new LinkedHashMap<>();
 
-    private final Map<String, UserDsRequestModel> accounts = new HashMap<>();
+    private final Map<String, UserRegisterDsRequestModel> accounts = new HashMap<>();
 
     public FileUser(String csvPath) throws IOException {
         csvFile = new File(csvPath);
@@ -38,7 +38,7 @@ public class FileUser implements UserRegisterDsGateway {
                 String password = String.valueOf(col[headers.get("password")]);
                 String creationTimeText = String.valueOf(col[headers.get("creation_time")]);
                 LocalDateTime ldt = LocalDateTime.parse(creationTimeText);
-                UserDsRequestModel user = new UserDsRequestModel(username, password, ldt);
+                UserRegisterDsRequestModel user = new UserRegisterDsRequestModel(username, password, ldt);
                 accounts.put(username, user);
             }
 
@@ -51,7 +51,7 @@ public class FileUser implements UserRegisterDsGateway {
      * @param requestModel the user information to save.
      */
     @Override
-    public void save(UserDsRequestModel requestModel) {
+    public void save(UserRegisterDsRequestModel requestModel) {
         accounts.put(requestModel.getName(), requestModel);
         this.save();
     }
@@ -63,7 +63,7 @@ public class FileUser implements UserRegisterDsGateway {
             writer.write(String.join(",", headers.keySet()));
             writer.newLine();
 
-            for (UserDsRequestModel user : accounts.values()) {
+            for (UserRegisterDsRequestModel user : accounts.values()) {
                 String line = "%s,%s,%s".formatted(
                         user.getName(), user.getPassword(), user.getCreationTime());
                 writer.write(line);
