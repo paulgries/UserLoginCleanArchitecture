@@ -7,14 +7,14 @@ import java.time.LocalDateTime;
 
 // Use case layer
 
-public class UserRegisterRegisterInteractor implements UserRegisterInputBoundary {
+public class UserRegisterInteractor implements UserRegisterInputBoundary {
 
     final UserRegisterDsGateway userDsGateway;
     final UserRegisterPresenter userPresenter;
     final UserFactory userFactory;
 
-    public UserRegisterRegisterInteractor(UserRegisterDsGateway userRegisterDfGateway, UserRegisterPresenter userRegisterPresenter,
-                                          UserFactory userFactory) {
+    public UserRegisterInteractor(UserRegisterDsGateway userRegisterDfGateway, UserRegisterPresenter userRegisterPresenter,
+                                  UserFactory userFactory) {
         this.userDsGateway = userRegisterDfGateway;
         this.userPresenter = userRegisterPresenter;
         this.userFactory = userFactory;
