@@ -2,7 +2,7 @@ import screens.*;
 import user_register_use_case.UserRegisterInputBoundary;
 import user_register_use_case.UserRegisterPresenter;
 import user_register_use_case.UserRegisterDsGateway;
-import user_register_use_case.UserRegisterRegisterInteractor;
+import user_register_use_case.UserRegisterInteractor;
 import entities.*;
 
 import javax.swing.*;
@@ -27,7 +27,7 @@ public class Main {
         }
         UserRegisterPresenter presenter = new UserRegisterResponseFormatter();
         UserFactory userFactory = new CommonUserFactory();
-        UserRegisterInputBoundary interactor = new UserRegisterRegisterInteractor(
+        UserRegisterInputBoundary interactor = new UserRegisterInteractor(
                 user, presenter, userFactory);
         UserRegisterController userRegisterController = new UserRegisterController(
                 interactor
