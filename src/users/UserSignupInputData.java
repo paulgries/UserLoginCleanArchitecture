@@ -4,9 +4,9 @@ package users;
 
 public class UserSignupInputData {
 
-    private String name;
-    private String password;
-    private String repeatPassword;
+    final private String name;
+    final private String password;
+    final private String repeatPassword;
 
     public UserSignupInputData(String name, String password, String repeatPassword) {
         this.name = name;
