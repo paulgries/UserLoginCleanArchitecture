@@ -1,4 +1,4 @@
-package screens;
+package view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,6 +8,9 @@ import java.awt.event.*;
 
 public class WelcomeScreen extends JPanel implements ActionListener {
 
+    private JButton logIn = new JButton("Log in");
+    private JButton signUp = new JButton("Sign up");
+
     /**
      * A window with a title and a JButton.
      */
@@ -15,9 +18,6 @@ public class WelcomeScreen extends JPanel implements ActionListener {
 
         JLabel title = new JLabel("Welcome Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        JButton logIn = new JButton("Log in");
-        JButton signUp = new JButton("Sign up");
 
         JPanel buttons = new JPanel();
         buttons.add(logIn);
@@ -37,5 +37,10 @@ public class WelcomeScreen extends JPanel implements ActionListener {
      */
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Click " + evt.getActionCommand());
+        if (evt.getSource().equals(logIn)) {
+
+        } else if (evt.getSource().equals(signUp)) {
+
+        }
     }
 }

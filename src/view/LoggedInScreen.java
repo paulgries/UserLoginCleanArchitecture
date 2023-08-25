@@ -1,50 +1,43 @@
-package screens;
+package view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 // Frameworks/Drivers layer
 
-public class LoginScreen extends JPanel implements ActionListener {
+public class LoggedInScreen extends JPanel implements ActionListener {
     /**
      * The username chosen by the user
      */
     JTextField username = new JTextField(15);
     /**
-     * The password
-     */
-    JPasswordField password = new JPasswordField(15);
-
-
-    /**
      * A window with a title and a JButton.
      */
-    public LoginScreen() {
+    public LoggedInScreen() {
 
-        JLabel title = new JLabel("Login Screen");
+        JLabel title = new JLabel("Logged-in Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JButton logOut = new JButton("Log out");
+        JButton changePassword = new JButton("Change password");
 
         LabelTextPanel usernameInfo = new LabelTextPanel(
                 new JLabel("Username"), username);
-        LabelTextPanel passwordInfo = new LabelTextPanel(
-                new JLabel("Password"), password);
-
-        JButton logIn = new JButton("Log in");
-        JButton cancel = new JButton("Cancel");
+        username.setEditable(false);
 
         JPanel buttons = new JPanel();
-        buttons.add(logIn);
-        buttons.add(cancel);
+        buttons.add(logOut);
+        buttons.add(changePassword);
 
-        logIn.addActionListener(this);
-        cancel.addActionListener(this);
+        logOut.addActionListener(this);
+        changePassword.addActionListener(this);
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         this.add(title);
         this.add(usernameInfo);
-        this.add(passwordInfo);
         this.add(buttons);
     }
 

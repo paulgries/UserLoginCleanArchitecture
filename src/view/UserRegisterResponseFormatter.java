@@ -1,7 +1,7 @@
-package screens;
+package view;
 
-import user_register_use_case.UserRegisterPresenter;
-import user_register_use_case.UserRegisterResponseModel;
+import users.UserRegisterPresenter;
+import users.UserRegisterResponseModel;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

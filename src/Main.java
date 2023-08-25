@@ -1,8 +1,8 @@
-import screens.*;
-import user_register_use_case.UserRegisterInputBoundary;
-import user_register_use_case.UserRegisterPresenter;
-import user_register_use_case.UserRegisterDsGateway;
-import user_register_use_case.UserRegisterInteractor;
+import view.*;
+import users.UserRegisterInputBoundary;
+import users.UserRegisterPresenter;
+import users.UserRegisterDsGateway;
+import users.UserRegisterInteractor;
 import entities.*;
 
 import javax.swing.*;
@@ -25,12 +25,12 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException("Could not create file.");
         }
-        UserRegisterPresenter presenter = new UserRegisterResponseFormatter();
+        UserRegisterPresenter userRegisterPresenter = new UserRegisterResponseFormatter();
         UserFactory userFactory = new CommonUserFactory();
-        UserRegisterInputBoundary interactor = new UserRegisterInteractor(
-                user, presenter, userFactory);
+        UserRegisterInputBoundary userRegisterInteractor = new UserRegisterInteractor(
+                user, userRegisterPresenter, userFactory);
         UserRegisterController userRegisterController = new UserRegisterController(
-                interactor
+                userRegisterInteractor
         );
 
         // Build the GUI, plugging in the parts

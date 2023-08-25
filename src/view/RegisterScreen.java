@@ -1,6 +1,4 @@
-package screens;
-
-import user_register_use_case.UserRegisterRequestModel;
+package view;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,7 +1,7 @@
-package screens;
+package view;
 
-import user_register_use_case.UserRegisterDsRequestModel;
-import user_register_use_case.UserRegisterDsGateway;
+import users.UserRegisterDsRequestModel;
+import users.UserRegisterDsGateway;
 
 import java.util.HashMap;
 import java.util.Map;

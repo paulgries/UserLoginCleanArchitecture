@@ -1,4 +1,4 @@
-package user_register_use_case;
+package users;
 
 import java.time.LocalDateTime;
 

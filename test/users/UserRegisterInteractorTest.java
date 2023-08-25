@@ -1,10 +1,9 @@
-package user_register_use_case;
+package users;
 
 import entities.CommonUserFactory;
 import entities.UserFactory;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import screens.InMemoryUser;
+import view.InMemoryUser;
 
 import static org.junit.jupiter.api.Assertions.*;
 
