@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 // Frameworks/Drivers layer
 
-public class LoginScreen extends JPanel implements ActionListener {
+public class LoginView extends JPanel implements ActionListener {
     /**
      * The username chosen by the user
      */
@@ -20,7 +20,7 @@ public class LoginScreen extends JPanel implements ActionListener {
     /**
      * A window with a title and a JButton.
      */
-    public LoginScreen() {
+    public LoginView() {
 
         JLabel title = new JLabel("Login Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);

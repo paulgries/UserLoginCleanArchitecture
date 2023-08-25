@@ -9,7 +9,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 // Frameworks/Drivers layer
 
-public class RegisterScreen extends JPanel implements ActionListener {
+public class RegisterView extends JPanel implements ActionListener {
     /**
      * The username chosen by the user
      */
@@ -31,7 +31,7 @@ public class RegisterScreen extends JPanel implements ActionListener {
     /**
      * A window with a title and a JButton.
      */
-    public RegisterScreen(UserRegisterController controller) {
+    public RegisterView(UserRegisterController controller) {
 
         this.userRegisterController = controller;
 

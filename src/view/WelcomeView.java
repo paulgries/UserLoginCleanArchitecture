@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 // Frameworks/Drivers layer
 
-public class WelcomeScreen extends JPanel implements ActionListener {
+public class WelcomeView extends JPanel implements ActionListener {
 
     private JButton logIn = new JButton("Log in");
     private JButton signUp = new JButton("Sign up");
@@ -14,7 +14,7 @@ public class WelcomeScreen extends JPanel implements ActionListener {
     /**
      * A window with a title and a JButton.
      */
-    public WelcomeScreen() {
+    public WelcomeView() {
 
         JLabel title = new JLabel("Welcome Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);

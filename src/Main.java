@@ -34,17 +34,17 @@ public class Main {
         );
 
         // Build the GUI, plugging in the parts
-        WelcomeScreen welcomeScreen = new WelcomeScreen();
-        screens.add(welcomeScreen, "welcome");
+        WelcomeView welcomeView = new WelcomeView();
+        screens.add(welcomeView, "welcome");
 
-        RegisterScreen registerScreen = new RegisterScreen(userRegisterController);
-        screens.add(registerScreen, "register");
+        RegisterView registerView = new RegisterView(userRegisterController);
+        screens.add(registerView, "register");
 
-        LoginScreen loginScreen = new LoginScreen();
-        screens.add(loginScreen, "login");
+        LoginView loginView = new LoginView();
+        screens.add(loginView, "login");
 
-        LoggedInScreen loggedInScreen = new LoggedInScreen();
-        screens.add(loggedInScreen, "loggedIn");
+        LoggedInView loggedInView = new LoggedInView();
+        screens.add(loggedInView, "loggedIn");
 
         cardLayout.show(screens, "welcome");
 //        cardLayout.show(screens, "register");

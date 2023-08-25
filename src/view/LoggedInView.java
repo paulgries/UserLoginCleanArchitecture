@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 // Frameworks/Drivers layer
 
-public class LoggedInScreen extends JPanel implements ActionListener {
+public class LoggedInView extends JPanel implements ActionListener {
     /**
      * The username chosen by the user
      */
@@ -15,7 +15,7 @@ public class LoggedInScreen extends JPanel implements ActionListener {
     /**
      * A window with a title and a JButton.
      */
-    public LoggedInScreen() {
+    public LoggedInView() {
 
         JLabel title = new JLabel("Logged-in Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
