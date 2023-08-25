@@ -14,7 +14,7 @@ public class UserSignupController {
         this.userInput = accountGateway;
     }
 
-    UserSignupOutputData create(String username, String password1, String password2) {
+    public UserSignupOutputData create(String username, String password1, String password2) {
         UserSignupInputData userSignupInputData = new UserSignupInputData(
                 username, password1, password2);
 
