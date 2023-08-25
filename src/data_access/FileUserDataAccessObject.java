@@ -1,7 +1,7 @@
-package view;
+package data_access;
 
-import users.UserRegisterDsRequestModel;
-import users.UserRegisterDsGateway;
+import users.UserSignupDsData;
+import users.UserSignupDataAccessInterface;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -9,15 +9,15 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class FileUser implements UserRegisterDsGateway {
+public class FileUserDataAccessObject implements UserSignupDataAccessInterface {
 
     private final File csvFile;
 
     private final Map<String, Integer> headers = new LinkedHashMap<>();
 
-    private final Map<String, UserRegisterDsRequestModel> accounts = new HashMap<>();
+    private final Map<String, UserSignupDsData> accounts = new HashMap<>();
 
-    public FileUser(String csvPath) throws IOException {
+    public FileUserDataAccessObject(String csvPath) throws IOException {
         csvFile = new File(csvPath);
 
         headers.put("username", 0);
@@ -38,7 +38,7 @@ public class FileUser implements UserRegisterDsGateway {
                 String password = String.valueOf(col[headers.get("password")]);
                 String creationTimeText = String.valueOf(col[headers.get("creation_time")]);
                 LocalDateTime ldt = LocalDateTime.parse(creationTimeText);
-                UserRegisterDsRequestModel user = new UserRegisterDsRequestModel(username, password, ldt);
+                UserSignupDsData user = new UserSignupDsData(username, password, ldt);
                 accounts.put(username, user);
             }
 
@@ -51,7 +51,7 @@ public class FileUser implements UserRegisterDsGateway {
      * @param requestModel the user information to save.
      */
     @Override
-    public void save(UserRegisterDsRequestModel requestModel) {
+    public void save(UserSignupDsData requestModel) {
         accounts.put(requestModel.getName(), requestModel);
         this.save();
     }
@@ -63,7 +63,7 @@ public class FileUser implements UserRegisterDsGateway {
             writer.write(String.join(",", headers.keySet()));
             writer.newLine();
 
-            for (UserRegisterDsRequestModel user : accounts.values()) {
+            for (UserSignupDsData user : accounts.values()) {
                 String line = "%s,%s,%s".formatted(
                         user.getName(), user.getPassword(), user.getCreationTime());
                 writer.write(line);

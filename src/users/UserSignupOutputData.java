@@ -2,12 +2,12 @@ package users;
 
 // Use case layer
 
-public class UserRegisterResponseModel {
+public class UserSignupOutputData {
 
     String login;
     String creationTime;
 
-    public UserRegisterResponseModel(String login, String creationTime) {
+    public UserSignupOutputData(String login, String creationTime) {
         this.login = login;
         this.creationTime = creationTime;
     }

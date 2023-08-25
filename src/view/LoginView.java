@@ -1,12 +1,17 @@
 package view;
 
+import interface_adapters.UserViewModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 // Frameworks/Drivers layer
 
 public class LoginView extends JPanel implements ActionListener {
+    private final UserViewModel userViewModel;
     /**
      * The username chosen by the user
      */
@@ -16,11 +21,14 @@ public class LoginView extends JPanel implements ActionListener {
      */
     JPasswordField password = new JPasswordField(15);
 
+    JButton logIn = new JButton("Log in");
+    JButton cancel = new JButton("Cancel");
 
     /**
      * A window with a title and a JButton.
      */
-    public LoginView() {
+    public LoginView(UserViewModel userViewModel) {
+        this.userViewModel = userViewModel;
 
         JLabel title = new JLabel("Login Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -29,9 +37,6 @@ public class LoginView extends JPanel implements ActionListener {
                 new JLabel("Username"), username);
         LabelTextPanel passwordInfo = new LabelTextPanel(
                 new JLabel("Password"), password);
-
-        JButton logIn = new JButton("Log in");
-        JButton cancel = new JButton("Cancel");
 
         JPanel buttons = new JPanel();
         buttons.add(logIn);
@@ -54,4 +59,5 @@ public class LoginView extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Click " + evt.getActionCommand());
     }
+
 }

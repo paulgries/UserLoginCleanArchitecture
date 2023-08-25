@@ -1,24 +1,24 @@
 package view;
 
-import users.UserRegisterPresenter;
-import users.UserRegisterResponseModel;
+import users.UserSignupOutputBoundary;
+import users.UserSignupOutputData;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 // Interface adapters layer
 
-public class UserRegisterResponseFormatter implements UserRegisterPresenter {
+public class UserSignupResponseFormatter implements UserSignupOutputBoundary {
 
     @Override
-    public UserRegisterResponseModel prepareSuccessView(UserRegisterResponseModel response) {
+    public UserSignupOutputData prepareSuccessView(UserSignupOutputData response) {
         LocalDateTime responseTime = LocalDateTime.parse(response.getCreationTime());
         response.setCreationTime(responseTime.format(DateTimeFormatter.ofPattern("hh:mm:ss")));
         return response;
     }
 
     @Override
-    public UserRegisterResponseModel prepareFailView(String error) {
+    public UserSignupOutputData prepareFailView(String error) {
         throw new UserCreationFailed(error);
     }
 }

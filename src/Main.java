@@ -1,9 +1,11 @@
+import data_access.FileUserDataAccessObject;
+import interface_adapters.UserViewModel;
+import users.*;
 import view.*;
-import users.UserRegisterInputBoundary;
-import users.UserRegisterPresenter;
-import users.UserRegisterDsGateway;
-import users.UserRegisterInteractor;
+import users.UserSignupInputBoundary;
+import users.UserSignupInteractor;
 import entities.*;
+import view.LayoutManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,41 +17,43 @@ public class Main {
         // Build the main program window
         JFrame application = new JFrame("Login Example");
         CardLayout cardLayout = new CardLayout();
-        JPanel screens = new JPanel(cardLayout);
-        application.add(screens);
+        UserViewModel userViewModel = new UserViewModel();
+        JPanel views = new JPanel(cardLayout);
+        LayoutManager viewManager = new LayoutManager(views, cardLayout, userViewModel);
+        application.add(views);
 
         // Create the parts to plug into the Use Case+Entities engine
-        UserRegisterDsGateway user;
+        UserSignupDataAccessInterface user;
         try {
-            user = new FileUser("./users.csv");
+            user = new FileUserDataAccessObject("./users.csv");
         } catch (IOException e) {
             throw new RuntimeException("Could not create file.");
         }
-        UserRegisterPresenter userRegisterPresenter = new UserRegisterResponseFormatter();
+        UserSignupOutputBoundary userSignupOutputBoundary = new UserSignupResponseFormatter();
         UserFactory userFactory = new CommonUserFactory();
-        UserRegisterInputBoundary userRegisterInteractor = new UserRegisterInteractor(
-                user, userRegisterPresenter, userFactory);
-        UserRegisterController userRegisterController = new UserRegisterController(
+        UserSignupInputBoundary userRegisterInteractor = new UserSignupInteractor(
+                user, userSignupOutputBoundary, userFactory);
+        UserSignupController userSignupController = new UserSignupController(
                 userRegisterInteractor
         );
 
         // Build the GUI, plugging in the parts
-        WelcomeView welcomeView = new WelcomeView();
-        screens.add(welcomeView, "welcome");
+        WelcomeView welcomeView = new WelcomeView(userViewModel);
+        views.add(welcomeView, "welcome");
 
-        RegisterView registerView = new RegisterView(userRegisterController);
-        screens.add(registerView, "register");
+        SignupView signupView = new SignupView(userSignupController, userViewModel);
+        views.add(signupView, "signup");
 
-        LoginView loginView = new LoginView();
-        screens.add(loginView, "login");
+        LoginView loginView = new LoginView(userViewModel);
+        views.add(loginView, "login");
 
         LoggedInView loggedInView = new LoggedInView();
-        screens.add(loggedInView, "loggedIn");
+        views.add(loggedInView, "loggedIn");
 
-        cardLayout.show(screens, "welcome");
-//        cardLayout.show(screens, "register");
-//        cardLayout.show(screens, "login");
-//        cardLayout.show(screens, "loggedIn");
+        cardLayout.show(views, "welcome");
+//        cardLayout.show(views, "register");
+//        cardLayout.show(views, "login");
+//        cardLayout.show(views, "loggedIn");
 
         application.pack();
         application.setVisible(true);

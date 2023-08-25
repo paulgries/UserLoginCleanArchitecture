@@ -1,14 +1,14 @@
 package view;
 
-import users.UserRegisterDsRequestModel;
-import users.UserRegisterDsGateway;
+import users.UserSignupDsData;
+import users.UserSignupDataAccessInterface;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class InMemoryUser implements UserRegisterDsGateway {
+public class InMemoryUser implements UserSignupDataAccessInterface {
 
-    final private Map<String, UserRegisterDsRequestModel> users = new HashMap<>();
+    final private Map<String, UserSignupDsData> users = new HashMap<>();
 
     /**
      * @param identifier the user's username
@@ -23,7 +23,7 @@ public class InMemoryUser implements UserRegisterDsGateway {
      * @param requestModel the data to save
      */
     @Override
-    public void save(UserRegisterDsRequestModel requestModel) {
+    public void save(UserSignupDsData requestModel) {
         System.out.println("Save " + requestModel.getName());
         users.put(requestModel.getName(), requestModel);
     }

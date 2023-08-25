@@ -2,13 +2,13 @@ package users;
 
 // Use case layer
 
-public class UserRegisterRequestModel {
+public class UserSignupInputData {
 
     private String name;
     private String password;
     private String repeatPassword;
 
-    public UserRegisterRequestModel(String name, String password, String repeatPassword) {
+    public UserSignupInputData(String name, String password, String repeatPassword) {
         this.name = name;
         this.password = password;
         this.repeatPassword = repeatPassword;

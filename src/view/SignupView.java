@@ -1,15 +1,20 @@
 package view;
 
+import interface_adapters.UserViewModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
 // Frameworks/Drivers layer
 
-public class RegisterView extends JPanel implements ActionListener {
+public class SignupView extends JPanel implements ActionListener {
+    private final UserViewModel userViewModel;
     /**
      * The username chosen by the user
      */
@@ -26,14 +31,19 @@ public class RegisterView extends JPanel implements ActionListener {
     /**
      * The controller
      */
-    UserRegisterController userRegisterController;
+    UserSignupController userSignupController;
+
+    JButton signUp = new JButton("Sign up");
+    JButton cancel = new JButton("Cancel");
+
 
     /**
      * A window with a title and a JButton.
      */
-    public RegisterView(UserRegisterController controller) {
+    public SignupView(UserSignupController controller, UserViewModel userViewModel) {
 
-        this.userRegisterController = controller;
+        this.userSignupController = controller;
+        this.userViewModel = userViewModel;
 
         JLabel title = new JLabel("Register Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -45,8 +55,6 @@ public class RegisterView extends JPanel implements ActionListener {
         LabelTextPanel repeatPasswordInfo = new LabelTextPanel(
                 new JLabel("Enter password again"), repeatPassword);
 
-        JButton signUp = new JButton("Sign up");
-        JButton cancel = new JButton("Cancel");
 
         JPanel buttons = new JPanel();
         buttons.add(signUp);
@@ -71,13 +79,22 @@ public class RegisterView extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Click " + evt.getActionCommand());
 
-        try {
-            userRegisterController.create(username.getText(),
-                    String.valueOf(password.getPassword()),
-                    String.valueOf(repeatPassword.getPassword()));
-            JOptionPane.showMessageDialog(this, "%s created.".formatted(username.getText()));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
+        if (evt.getSource().equals(signUp)) {
+            try {
+                userSignupController.create(username.getText(),
+                        String.valueOf(password.getPassword()),
+                        String.valueOf(repeatPassword.getPassword()));
+                userViewModel.setCurrentUser(username.getText());
+                JOptionPane.showMessageDialog(this, "%s created.".formatted(username.getText()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage());
+            }
+
+        } else if (evt.getSource().equals(cancel)) {
         }
+
+        // No matter what, return to the welcome screen.
+        userViewModel.setState(UserViewModel.LoginState.WELCOME);
     }
+
 }
