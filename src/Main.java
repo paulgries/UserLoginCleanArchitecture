@@ -34,19 +34,26 @@ public class Main {
         );
 
         // Build the GUI, plugging in the parts
+        WelcomeScreen welcomeScreen = new WelcomeScreen();
+        screens.add(welcomeScreen, "welcome");
+
         RegisterScreen registerScreen = new RegisterScreen(userRegisterController);
-        screens.add(registerScreen, "welcome");
-        cardLayout.show(screens, "register");
+        screens.add(registerScreen, "register");
+
+        LoginScreen loginScreen = new LoginScreen();
+        screens.add(loginScreen, "login");
+
+        LoggedInScreen loggedInScreen = new LoggedInScreen();
+        screens.add(loggedInScreen, "loggedIn");
+
+        cardLayout.show(screens, "welcome");
+//        cardLayout.show(screens, "register");
+//        cardLayout.show(screens, "login");
+//        cardLayout.show(screens, "loggedIn");
+
         application.pack();
         application.setVisible(true);
 
-        // Unused screens; we'll uncomment this later
-//        WelcomeScreen welcomeScreen = new WelcomeScreen();
-//        LoginScreen loginScreen = new LoginScreen();
-//        LoggedInScreen loggedInScreen = new LoggedInScreen();
-//        screens.add(welcomeScreen, "register");
-//        screens.add(loginScreen, "login");
-//        screens.add(loggedInScreen, "loggedIn");
 
     }
 

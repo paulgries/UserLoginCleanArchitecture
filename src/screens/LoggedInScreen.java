@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 // Frameworks/Drivers layer
 
-public class LoggedInScreen extends JFrame implements ActionListener {
+public class LoggedInScreen extends JPanel implements ActionListener {
     /**
      * The username chosen by the user
      */
@@ -34,15 +34,11 @@ public class LoggedInScreen extends JFrame implements ActionListener {
         logOut.addActionListener(this);
         changePassword.addActionListener(this);
 
-        JPanel main = new JPanel();
-        main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        main.add(title);
-        main.add(usernameInfo);
-        main.add(buttons);
-
-        this.setContentPane(main);
-        this.pack();
+        this.add(title);
+        this.add(usernameInfo);
+        this.add(buttons);
     }
 
     /**
