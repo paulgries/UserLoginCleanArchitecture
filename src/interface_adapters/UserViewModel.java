@@ -27,10 +27,6 @@ public class UserViewModel {
         support.firePropertyChange("user", oldUser, this.currentUser);
     }
 
-    public LoginState getState() {
-        return state;
-    }
-
     public void setState(LoginState state) {
         LoginState oldState = this.state;
         this.state = state;

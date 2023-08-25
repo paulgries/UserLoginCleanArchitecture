@@ -1,15 +1,12 @@
 package view;
 
+import interface_adapters.UserSignupController;
 import interface_adapters.UserViewModel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-
-import static javax.swing.JOptionPane.showMessageDialog;
 
 // Frameworks/Drivers layer
 
@@ -89,8 +86,6 @@ public class SignupView extends JPanel implements ActionListener {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e.getMessage());
             }
-
-        } else if (evt.getSource().equals(cancel)) {
         }
 
         // No matter what, return to the welcome screen.

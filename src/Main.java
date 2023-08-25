@@ -1,4 +1,5 @@
 import data_access.FileUserDataAccessObject;
+import interface_adapters.UserSignupController;
 import interface_adapters.UserViewModel;
 import users.*;
 import view.*;
@@ -6,6 +7,7 @@ import users.UserSignupInputBoundary;
 import users.UserSignupInteractor;
 import entities.*;
 import view.LayoutManager;
+import interface_adapters.UserSignupPresenter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,7 +31,7 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException("Could not create file.");
         }
-        UserSignupOutputBoundary userSignupOutputBoundary = new UserSignupResponseFormatter();
+        UserSignupOutputBoundary userSignupOutputBoundary = new UserSignupPresenter();
         UserFactory userFactory = new CommonUserFactory();
         UserSignupInputBoundary userRegisterInteractor = new UserSignupInteractor(
                 user, userSignupOutputBoundary, userFactory);

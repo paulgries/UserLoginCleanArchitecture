@@ -22,20 +22,11 @@ public class LayoutManager implements PropertyChangeListener {
         if (evt.getPropertyName().equals("state")) {
             UserViewModel.LoginState newValue = (UserViewModel.LoginState) evt.getNewValue();
             switch (newValue) {
-                case WELCOME:
-                    cardLayout.show(views, "welcome");
-                    break;
-                case SIGNING_UP:
-                    cardLayout.show(views, "signup");
-                    break;
-                case LOGGING_IN:
-                    cardLayout.show(views, "login");
-                    break;
-                case LOGGED_IN:
-                    cardLayout.show(views, "loggedIn");
-                    break;
-                default:
-                    throw new IllegalStateException("Unexpected value: " + evt.getNewValue());
+                case WELCOME -> cardLayout.show(views, "welcome");
+                case SIGNING_UP -> cardLayout.show(views, "signup");
+                case LOGGING_IN -> cardLayout.show(views, "login");
+                case LOGGED_IN -> cardLayout.show(views, "loggedIn");
+                default -> throw new IllegalStateException("Unexpected value: " + evt.getNewValue());
             }
         }
     }

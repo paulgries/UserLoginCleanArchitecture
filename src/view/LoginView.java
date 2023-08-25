@@ -5,8 +5,6 @@ import interface_adapters.UserViewModel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 // Frameworks/Drivers layer
 

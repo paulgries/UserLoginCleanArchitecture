@@ -27,6 +27,8 @@ class UserRegisterInteractorTest {
         // that just keeps the info in a dictionary, and it won't be persistent.
         // (Separately, elsewhere, we will need to test the FileUserDataAccessObject works
         // properly.)
+
+//        UserSignupDataAccessInterface userRepository = new InMemoryUser();
         UserSignupDataAccessInterface userRepository = new InMemoryUser();
 
         // This creates an anonymous implementing class for the Output Boundary.
