@@ -1,12 +1,12 @@
 package view;
 
 import users.UserSignupDsData;
-import users.UserSignupDataAccessInterface;
+import data_access.UserSignupDataAccessInterface;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class InMemoryUser implements UserSignupDataAccessInterface {
+public class InMemoryUserDataAccessObject implements UserSignupDataAccessInterface {
 
     final private Map<String, UserSignupDsData> users = new HashMap<>();
 
