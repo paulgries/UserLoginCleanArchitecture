@@ -39,7 +39,6 @@ public class WelcomeView extends JPanel implements ActionListener {
      * React to a button click that results in evt.
      */
     public void actionPerformed(ActionEvent evt) {
-        System.out.println("Click " + evt.getActionCommand());
         if (evt.getSource().equals(logIn)) {
             userViewModel.setState(UserViewModel.LoginState.LOGGING_IN);
         } else if (evt.getSource().equals(signUp)) {

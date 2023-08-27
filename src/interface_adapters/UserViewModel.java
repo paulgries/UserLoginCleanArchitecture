@@ -17,6 +17,8 @@ public class UserViewModel {
 
     private LoginState state = LoginState.WELCOME;
 
+    private final PropertyChangeSupport support = new PropertyChangeSupport(this);
+
     public String getCurrentUser() {
         return currentUser;
     }
@@ -32,8 +34,6 @@ public class UserViewModel {
         this.state = state;
         support.firePropertyChange("state", oldState, this.state);
     }
-
-    private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         support.addPropertyChangeListener(listener);

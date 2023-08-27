@@ -23,7 +23,6 @@ public class InMemoryUserDataAccessObject implements UserSignupDataAccessInterfa
      */
     @Override
     public void save(UserSignupDsData requestModel) {
-        System.out.println("Save " + requestModel.getName());
         users.put(requestModel.getName(), requestModel);
     }
 }
