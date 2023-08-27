@@ -7,11 +7,11 @@ import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-public class LayoutManager implements PropertyChangeListener {
+public class ViewManager implements PropertyChangeListener {
     private final CardLayout cardLayout;
     private final JPanel views;
 
-    public LayoutManager(JPanel views, CardLayout cardLayout, UserViewModel userViewModel) {
+    public ViewManager(JPanel views, CardLayout cardLayout, UserViewModel userViewModel) {
         this.views = views;
         this.cardLayout = cardLayout;
         userViewModel.addPropertyChangeListener(this);

@@ -1,5 +1,6 @@
 package users;
 
+import data_access.UserSignupDataAccessInterface;
 import entities.User;
 import entities.UserFactory;
 
@@ -21,16 +22,16 @@ public class UserSignupInteractor implements UserSignupInputBoundary {
     }
 
     @Override
-    public UserSignupOutputData createUser(UserSignupInputData userSignupInputData) {
+    public void createUser(UserSignupInputData userSignupInputData) {
         if (userDsGateway.existsByName(userSignupInputData.getName())) {
-            return userPresenter.prepareFailView("User already exists.");
+            userPresenter.prepareFailView("User already exists.");
         } else if (!userSignupInputData.getPassword().equals(userSignupInputData.getRepeatPassword())) {
-            return userPresenter.prepareFailView("Passwords don't match.");
+            userPresenter.prepareFailView("Passwords don't match.");
         }
 
         User user = userFactory.create(userSignupInputData.getName(), userSignupInputData.getPassword());
         if (!user.passwordIsValid()) {
-            return userPresenter.prepareFailView("User password must have more than 5 characters.");
+            userPresenter.prepareFailView("User password must have more than 5 characters.");
         }
 
         LocalDateTime now = LocalDateTime.now();
@@ -38,6 +39,6 @@ public class UserSignupInteractor implements UserSignupInputBoundary {
         userDsGateway.save(userDsModel);
 
         UserSignupOutputData accountResponseModel = new UserSignupOutputData(user.getName(), now.toString());
-        return userPresenter.prepareSuccessView(accountResponseModel);
+        userPresenter.prepareSuccessView(accountResponseModel);
     }
 }

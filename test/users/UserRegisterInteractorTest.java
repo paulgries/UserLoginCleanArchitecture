@@ -1,9 +1,10 @@
 package users;
 
+import data_access.UserSignupDataAccessInterface;
 import entities.CommonUserFactory;
 import entities.UserFactory;
 import org.junit.jupiter.api.Test;
-import view.InMemoryUser;
+import data_access.InMemoryUserDataAccessObject;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,16 +29,16 @@ class UserRegisterInteractorTest {
         // (Separately, elsewhere, we will need to test the FileUserDataAccessObject works
         // properly.)
 
-//        UserSignupDataAccessInterface userRepository = new InMemoryUser();
-        UserSignupDataAccessInterface userRepository = new InMemoryUser();
+//        UserSignupDataAccessInterface userRepository = new InMemoryUserDataAccessObject();
+        UserSignupDataAccessInterface userRepository = new InMemoryUserDataAccessObject();
 
         // This creates an anonymous implementing class for the Output Boundary.
         UserSignupOutputBoundary presenter = new UserSignupOutputBoundary() {
             @Override
-            public UserSignupOutputData prepareSuccessView(UserSignupOutputData user) {
+            public void prepareSuccessView(UserSignupOutputData user) {
                 // 4) Check that the Output Data and associated changes
                 // are correct
-                assertEquals("paul", user.getLogin());
+                assertEquals("paul", user.getUser());
                 assertNotNull(user.getCreationTime()); // any creation time is fine.
                 assertTrue(userRepository.existsByName("paul"));
                 return null;

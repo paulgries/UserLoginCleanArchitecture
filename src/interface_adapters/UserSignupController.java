@@ -14,10 +14,10 @@ public class UserSignupController {
         this.userInput = accountGateway;
     }
 
-    public UserSignupOutputData create(String username, String password1, String password2) {
+    public void create(String username, String password1, String password2) {
         UserSignupInputData userSignupInputData = new UserSignupInputData(
                 username, password1, password2);
 
-        return userInput.createUser(userSignupInputData);
+        userInput.createUser(userSignupInputData);
     }
 }

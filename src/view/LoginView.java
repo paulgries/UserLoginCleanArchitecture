@@ -9,6 +9,7 @@ import java.awt.event.*;
 // Frameworks/Drivers layer
 
 public class LoginView extends JPanel implements ActionListener {
+    private final UserViewModel userViewModel;
     /**
      * The username chosen by the user
      */

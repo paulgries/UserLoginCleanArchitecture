@@ -4,16 +4,16 @@ package users;
 
 public class UserSignupOutputData {
 
-    String login;
+    String user;
     String creationTime;
 
-    public UserSignupOutputData(String login, String creationTime) {
-        this.login = login;
+    public UserSignupOutputData(String user, String creationTime) {
+        this.user = user;
         this.creationTime = creationTime;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUser() {
+        return user;
     }
 
     public String getCreationTime() {
