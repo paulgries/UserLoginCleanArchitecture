@@ -9,24 +9,22 @@ import java.awt.event.*;
 // Frameworks/Drivers layer
 
 public class LoginView extends JPanel implements ActionListener {
-    private final UserViewModel userViewModel;
     /**
      * The username chosen by the user
      */
-    JTextField username = new JTextField(15);
+    final JTextField username = new JTextField(15);
     /**
      * The password
      */
-    JPasswordField password = new JPasswordField(15);
+    final JPasswordField password = new JPasswordField(15);
 
-    JButton logIn = new JButton("Log in");
-    JButton cancel = new JButton("Cancel");
+    final JButton logIn = new JButton("Log in");
+    final JButton cancel = new JButton("Cancel");
 
     /**
      * A window with a title and a JButton.
      */
     public LoginView(UserViewModel userViewModel) {
-        this.userViewModel = userViewModel;
 
         JLabel title = new JLabel("Login Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);

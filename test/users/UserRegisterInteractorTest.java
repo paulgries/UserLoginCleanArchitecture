@@ -33,27 +33,7 @@ class UserRegisterInteractorTest {
         UserSignupDataAccessInterface userRepository = new InMemoryUserDataAccessObject();
 
         // This creates an anonymous implementing class for the Output Boundary.
-        UserSignupOutputBoundary presenter = new UserSignupOutputBoundary() {
-            @Override
-            public void prepareSuccessView(UserSignupOutputData user) {
-                // 4) Check that the Output Data and associated changes
-                // are correct
-                assertEquals("paul", user.getUser());
-                assertNotNull(user.getCreationTime()); // any creation time is fine.
-                assertTrue(userRepository.existsByName("paul"));
-                return null;
-            }
-
-            @Override
-            public UserSignupOutputData prepareFailView(String error) {
-                fail("Use case failure is unexpected.");
-                return null;
-            }
-        };
-
-        UserFactory userFactory = new CommonUserFactory();
-        UserSignupInputBoundary interactor = new UserSignupInteractor(
-                userRepository, presenter, userFactory);
+        UserSignupInputBoundary interactor = getUserSignupInputBoundary(userRepository);
 
         // 2) Input data — we can make this up for the test. Normally it would
         // be created by the Controller.
@@ -62,5 +42,26 @@ class UserRegisterInteractorTest {
 
         // 3) Run the use case
         interactor.createUser(inputData);
+    }
+
+    private static UserSignupInputBoundary getUserSignupInputBoundary(UserSignupDataAccessInterface userRepository) {
+        UserSignupOutputBoundary presenter = new UserSignupOutputBoundary() {
+            @Override
+            public void prepareSuccessView(UserSignupOutputData user) {
+                // 4) Check that the Output Data and associated changes
+                // are correct
+                assertEquals("paul", user.getUser());
+                assertNotNull(user.getCreationTime()); // any creation time is fine.
+                assertTrue(userRepository.existsByName("paul"));
+            }
+
+            @Override
+            public void prepareFailView(String error) {
+                fail("Use case failure is unexpected.");
+            }
+        };
+
+        UserFactory userFactory = new CommonUserFactory();
+        return new UserSignupInteractor(userRepository, presenter, userFactory);
     }
 }

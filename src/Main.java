@@ -4,10 +4,7 @@ import interface_adapters.UserSignupController;
 import interface_adapters.UserViewModel;
 import users.*;
 import view.*;
-import users.UserSignupInputBoundary;
-import users.UserSignupInteractor;
 import entities.*;
-import view.ViewManager;
 import interface_adapters.UserSignupPresenter;
 
 import javax.swing.*;
@@ -79,10 +76,7 @@ public class Main {
         UserFactory userFactory = new CommonUserFactory();
         UserSignupInputBoundary userRegisterInteractor = new UserSignupInteractor(
                 user, userSignupOutputBoundary, userFactory);
-        UserSignupController userSignupController = new UserSignupController(
-                userRegisterInteractor
-        );
-        return userSignupController;
+        return new UserSignupController(userRegisterInteractor);
     }
 
 }

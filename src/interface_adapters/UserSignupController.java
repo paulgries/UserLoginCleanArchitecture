@@ -2,7 +2,6 @@ package interface_adapters;
 
 import users.UserSignupInputBoundary;
 import users.UserSignupInputData;
-import users.UserSignupOutputData;
 
 // Interface adapters layer
 

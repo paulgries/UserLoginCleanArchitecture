@@ -5,5 +5,5 @@ package users;
 public interface UserSignupOutputBoundary {
     void prepareSuccessView(UserSignupOutputData user);
 
-    UserSignupOutputData prepareFailView(String error);
+    void prepareFailView(String error);
 }
