@@ -6,10 +6,7 @@ import entities.UserFactory;
 
 import java.time.LocalDateTime;
 
-// Use case layer
-
 public class UserSignupInteractor implements UserSignupInputBoundary {
-
     final UserSignupDataAccessInterface userDsGateway;
     final UserSignupOutputBoundary userPresenter;
     final UserFactory userFactory;

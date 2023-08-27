@@ -3,8 +3,6 @@ package interface_adapters;
 import users.UserSignupInputBoundary;
 import users.UserSignupInputData;
 
-// Interface adapters layer
-
 public class UserSignupController {
 
     final UserSignupInputBoundary userInput;

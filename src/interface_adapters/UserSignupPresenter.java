@@ -6,8 +6,6 @@ import users.UserSignupOutputData;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-// Interface adapters layer
-
 public class UserSignupPresenter implements UserSignupOutputBoundary {
 
     @Override

@@ -8,8 +8,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-// Frameworks/Drivers layer
-
 public class SignupView extends JPanel implements ActionListener {
     private final UserViewModel userViewModel;
     /**

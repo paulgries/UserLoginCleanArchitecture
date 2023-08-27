@@ -8,7 +8,7 @@ import data_access.InMemoryUserDataAccessObject;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class UserRegisterInteractorTest {
+class UserSignupInteractorTest {
 
     @Test
     void create() {

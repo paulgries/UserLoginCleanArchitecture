@@ -1,7 +1,5 @@
 package entities;
 
-// Entity layer
-
 public interface User {
     boolean passwordIsValid();
 

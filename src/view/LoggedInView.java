@@ -5,8 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-// Frameworks/Drivers layer
-
 public class LoggedInView extends JPanel implements ActionListener {
     /**
      * The username chosen by the user

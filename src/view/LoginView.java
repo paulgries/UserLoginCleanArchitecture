@@ -6,8 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-// Frameworks/Drivers layer
-
 public class LoginView extends JPanel implements ActionListener {
     /**
      * The username chosen by the user

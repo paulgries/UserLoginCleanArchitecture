@@ -2,8 +2,6 @@ package users;
 
 import java.time.LocalDateTime;
 
-// Use case layer
-
 public class UserSignupDsData {
 
     private final String name;

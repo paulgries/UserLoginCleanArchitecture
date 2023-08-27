@@ -1,7 +1,5 @@
 package entities;
 
-// Entity layer
-
 class CommonUser implements User {
 
     private final String name;

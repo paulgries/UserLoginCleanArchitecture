@@ -1,7 +1,5 @@
 package users;
 
-// Use case layer
-
 public class UserSignupOutputData {
 
     private final String user;

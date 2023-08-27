@@ -6,8 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-// Frameworks/Drivers layer
-
 public class WelcomeView extends JPanel implements ActionListener {
 
     private final UserViewModel userViewModel;
