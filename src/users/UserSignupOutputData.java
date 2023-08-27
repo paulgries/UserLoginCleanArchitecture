@@ -4,8 +4,8 @@ package users;
 
 public class UserSignupOutputData {
 
-    String user;
-    String creationTime;
+    private final String user;
+    private String creationTime;
 
     public UserSignupOutputData(String user, String creationTime) {
         this.user = user;

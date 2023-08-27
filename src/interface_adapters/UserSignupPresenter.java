@@ -17,7 +17,7 @@ public class UserSignupPresenter implements UserSignupOutputBoundary {
     }
 
     @Override
-    public users.UserSignupOutputData prepareFailView(String error) {
+    public void prepareFailView(String error) {
         throw new UserCreationFailed(error);
     }
 }

@@ -15,23 +15,23 @@ public class SignupView extends JPanel implements ActionListener {
     /**
      * The username chosen by the user
      */
-    JTextField username = new JTextField(15);
+    private final JTextField username = new JTextField(15);
     /**
      * The password
      */
-    JPasswordField password = new JPasswordField(15);
+    private final JPasswordField password = new JPasswordField(15);
     /**
      * The second password to make sure the user understands
      */
-    JPasswordField repeatPassword = new JPasswordField(15);
+    private final JPasswordField repeatPassword = new JPasswordField(15);
 
     /**
      * The controller
      */
-    UserSignupController userSignupController;
+    private final UserSignupController userSignupController;
 
-    JButton signUp = new JButton("Sign up");
-    JButton cancel = new JButton("Cancel");
+    private final JButton signUp = new JButton("Sign up");
+    private final JButton cancel = new JButton("Cancel");
 
 
     /**

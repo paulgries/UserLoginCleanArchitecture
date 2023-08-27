@@ -11,7 +11,7 @@ public class LoggedInView extends JPanel implements ActionListener {
     /**
      * The username chosen by the user
      */
-    JTextField username = new JTextField(15);
+     private final JTextField username = new JTextField(15); // maybe a JLabel?
     /**
      * A window with a title and a JButton.
      */

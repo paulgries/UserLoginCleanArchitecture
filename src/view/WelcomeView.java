@@ -5,16 +5,14 @@ import interface_adapters.UserViewModel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 // Frameworks/Drivers layer
 
 public class WelcomeView extends JPanel implements ActionListener {
 
     private final UserViewModel userViewModel;
-    private JButton logIn = new JButton("Log in");
-    private JButton signUp = new JButton("Sign up");
+    private final JButton logIn = new JButton("Log in");
+    private final JButton signUp = new JButton("Sign up");
 
     /**
      * A window with a title and a JButton.
