@@ -40,7 +40,7 @@ public class SignupView extends JPanel implements ActionListener {
         this.userSignupController = controller;
         this.userViewModel = userViewModel;
 
-        JLabel title = new JLabel("Register Screen");
+        JLabel title = new JLabel("Sign-Up Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         LabelTextPanel usernameInfo = new LabelTextPanel(

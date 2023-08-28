@@ -43,9 +43,9 @@ public class Main {
 
         // Show the first view.
         cardLayout.show(views, "welcome");
-//        cardLayout.show(views, "register");
-//        cardLayout.show(views, "login");
-//        cardLayout.show(views, "loggedIn");
+//        cardLayout.show(views, "sign up");
+//        cardLayout.show(views, "log in");
+//        cardLayout.show(views, "logged in");
 
         application.pack();
         application.setVisible(true);
@@ -56,13 +56,13 @@ public class Main {
         views.add(welcomeView, "welcome");
 
         SignupView signupView = new SignupView(userSignupController, userViewModel);
-        views.add(signupView, "signup");
+        views.add(signupView, "sign up");
 
         LoginView loginView = new LoginView(userViewModel);
-        views.add(loginView, "login");
+        views.add(loginView, "log in");
 
         LoggedInView loggedInView = new LoggedInView();
-        views.add(loggedInView, "loggedIn");
+        views.add(loggedInView, "logged in");
     }
 
     private static UserSignupController createUserSignupUseCase() {
@@ -74,9 +74,9 @@ public class Main {
         }
         UserSignupOutputBoundary userSignupOutputBoundary = new UserSignupPresenter();
         UserFactory userFactory = new CommonUserFactory();
-        UserSignupInputBoundary userRegisterInteractor = new UserSignupInteractor(
+        UserSignupInputBoundary userSignupInteractor = new UserSignupInteractor(
                 user, userSignupOutputBoundary, userFactory);
-        return new UserSignupController(userRegisterInteractor);
+        return new UserSignupController(userSignupInteractor);
     }
 
 }
