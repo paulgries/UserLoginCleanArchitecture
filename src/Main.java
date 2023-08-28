@@ -53,16 +53,16 @@ public class Main {
 
     private static void createViewsAndAddToPanel(UserViewModel userViewModel, JPanel views, UserSignupController userSignupController) {
         WelcomeView welcomeView = new WelcomeView(userViewModel);
-        views.add(welcomeView, "welcome");
+        views.add(welcomeView, ViewManager.WELCOME);
 
         SignupView signupView = new SignupView(userSignupController, userViewModel);
-        views.add(signupView, "sign up");
+        views.add(signupView, ViewManager.SIGN_UP);
 
         LoginView loginView = new LoginView(userViewModel);
-        views.add(loginView, "log in");
+        views.add(loginView, ViewManager.LOG_IN);
 
         LoggedInView loggedInView = new LoggedInView();
-        views.add(loggedInView, "logged in");
+        views.add(loggedInView, ViewManager.LOGGED_IN);
     }
 
     private static UserSignupController createUserSignupUseCase() {
